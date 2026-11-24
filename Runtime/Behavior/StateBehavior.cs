@@ -39,12 +39,15 @@ namespace UGS.State
         public readonly IStateHost Host;
         public readonly StateMachine Machine;
         public readonly StateInstance Instance;
+        /// <summary>true 表示本次 OnExit 来自驱动销毁（实体隐藏 / 卸载），而不是真实的状态切换。</summary>
+        public readonly bool IsDisposing;
 
-        public StateContext(IStateHost host, StateMachine machine, StateInstance instance)
+        public StateContext(IStateHost host, StateMachine machine, StateInstance instance, bool isDisposing = false)
         {
             Host = host;
             Machine = machine;
             Instance = instance;
+            IsDisposing = isDisposing;
         }
 
         public StateId Id

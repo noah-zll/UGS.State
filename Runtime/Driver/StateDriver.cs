@@ -287,7 +287,7 @@ namespace UGS.State
 
                 try
                 {
-                    entry.Behavior.OnExit(new StateContext(_host, entry.Machine, entry.Instance));
+                    entry.Behavior.OnExit(new StateContext(_host, entry.Machine, entry.Instance, true));
                 }
                 catch (Exception exception)
                 {
@@ -362,7 +362,7 @@ namespace UGS.State
                 entry.Active = false;
                 try
                 {
-                    entry.Behavior.OnExit(new StateContext(_host, entry.Machine, entry.Instance));
+                    entry.Behavior.OnExit(new StateContext(_host, entry.Machine, entry.Instance, true));
                 }
                 catch (Exception exception)
                 {
